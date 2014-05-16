@@ -1,0 +1,16 @@
+# Url Struktur
+
+## Sichtbar
+
+/.
+/preise
+/account/neu => 10 Tage Free
+/blog
+/impressum
+/agb
+/:company
+
+## Nicht sichtbar
+
+/admin
+/styleguide

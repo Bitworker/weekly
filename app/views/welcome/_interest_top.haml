@@ -1,0 +1,23 @@
+.interest-top.row.collapse
+  .small-7.columns
+    %h2
+      Weekly, die beste Art von Team-Feedbacks!
+    %h5
+      Probleme erkennen, lösen und abläufe verbessern.
+    
+    .row
+      .small-2.columns
+      .small-8.columns
+        = form_for @interest, url: { action: "create" } do |form|
+          %fieldset
+            %legend
+              Kostenlos testen
+            .row.collapse
+              .small-10.columns
+                = form.text_field :email, { :placeholder => 'Ihre E-Mail-Addresse' }
+              .small-2.columns
+                = form.submit 'Los', { :class => 'postfix button' }
+      .small-2.columns
+  
+  .small-5.columns
+    = image_tag "http://www.skipprichard.com/wp-content/uploads/2013/09/bigstock-Teamwork-Diagram-42986869-583x327.jpg"

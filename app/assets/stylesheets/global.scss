@@ -1,0 +1,35 @@
+.welcome {
+  legend{
+  	background-color: #f2f2f2;
+  }
+  h5 {
+  	margin: 15px;
+  	margin-top: 60px;
+  }
+  .interest-top {
+  	img {
+  	  margin-top: 70px
+  	}
+  }
+}
+
+.benefits, .how-to, .testemonials, .pricing, .interest-bottom {
+  height: 250px;
+}
+
+.benefits, .testemonials, .interest-bottom { 
+  margin-top: 30px !important;
+  margin-right: -20px !important;
+  margin-left: -20px !important;
+  
+  padding: 20px;
+
+  background-color: #303030;
+  h3 {
+    color: #fff;
+  }
+}
+
+.testemonials {
+  background-color: #575757;
+}
