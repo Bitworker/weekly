@@ -5,9 +5,29 @@
         = link_to 'Weekly', root_path
   %section.top-bar-section
     %ul.left
+      - if user_signed_in?
+        %li
+          = link_to 'Berichte', '#'
+        %li
+          = link_to 'Auswertungen', '#'
+        %li
+          = link_to 'Firmenübersicht', '#'
+        %li
+          = link_to 'Berichte bearbeiten', '#'
+      - else
+        %li
+          = link_to 'Ausprobieren', '#'
+        %li
+          = link_to 'Preise', '#'
+        %li
+          = link_to 'Blog', '#'
+    
+    %ul.right
+      - if user_signed_in?
+        %li
+          = link_to 'Einstellungen', '', method: :delete
       %li
-        = link_to 'Ausprobieren', '#'
-      %li
-        = link_to 'Preise', '#'
-      %li
-        = link_to 'Blog', '#'
+        - if user_signed_in?
+          = link_to 'Logout', destroy_user_session_path, method: :delete
+        - else
+          = link_to 'Login', new_user_session_path

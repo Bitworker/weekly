@@ -1,17 +1,22 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+%h2 Anmelden
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form|
   = devise_error_messages!
   %div
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
+    = form.label "E-Mail"
+    %br
+    = form.email_field :email, :value => params[:email] || ""
   %div
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "off"
+    = form.label "Passwort"
+    %br
+    = form.password_field :password, autocomplete: "off", autofocus: true
   %div
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  %div= f.submit "Sign up"
-= render "devise/shared/links"
+    = form.label "Passwort bestätigen"
+    %br
+    = form.password_field :password_confirmation, autocomplete: "off"
+  %hr
+  %div
+    = form.fields_for :company_attributes, resource.company do |form_company|
+      = form_company.label "Firma"
+      %br
+      = form_company.text_field :name
+  %div= form.submit "Speichern"

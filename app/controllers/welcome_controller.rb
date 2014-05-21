@@ -12,7 +12,7 @@ class WelcomeController < ApplicationController
     @interest = Interest.new(interest_params)
     
     if @interest.save
-      redirect_to new_user_registration_path
+      redirect_to new_user_registration_path(:email => @interest.email)
     else
       render index
     end

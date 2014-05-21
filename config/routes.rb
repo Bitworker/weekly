@@ -1,16 +1,6 @@
 Weekly::Application.routes.draw do
   
-  devise_for :users, 
-    path: "user",
-    path_names: {
-      sign_in: 'login',
-      sign_out: 'logout',
-      password: 'secret',
-      confirmation: 'verification',
-      unlock: 'unblock',
-      registration: 'register',
-      sign_up: 'new'
-    }
+  devise_for :users, :controllers => { :registrations => "registrations" }
   
   get  '/styleguide' => 'welcome#styleguide', :as => :styleguide
   post 'interest/create' => 'welcome#create'

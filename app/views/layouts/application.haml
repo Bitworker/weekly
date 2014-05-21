@@ -23,16 +23,17 @@
 
 %body
   = render :partial => 'layouts/navigation'
-
-  - if flash.present?
-    = flash.each do |name, msg|
-      .flash{ :class => name }
-        = msg
   
   .row
     .small-2.columns
     .small-8.columns.panel{ :style => 'width: 100%;' }
+      - if flash.present?
+        - flash.each do |name, msg|
+          .alert-box.radius{ :class => name, :data => { :alert => "" } }
+            = msg
+            %a.close{ :href => "#" }
+              &times;
       = yield
     .small-2.columns
-    
+  
   = javascript_include_tag "application"
