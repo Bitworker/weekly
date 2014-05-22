@@ -7,13 +7,13 @@
     %ul.left
       - if user_signed_in?
         %li
-          = link_to 'Berichte', '#'
+          = link_to 'Fragen verwalten', '#'
         %li
-          = link_to 'Auswertungen', '#'
+          = link_to 'Feedback auswerten', '#'
         %li
-          = link_to 'Firmenübersicht', '#'
+          = link_to 'Team Übersicht', company_path(current_user.company.url_name)
         %li
-          = link_to 'Berichte bearbeiten', '#'
+          = link_to 'Firmen Einstellungen', company_settings_path(current_user.company.url_name)
       - else
         %li
           = link_to 'Ausprobieren', '#'
@@ -25,7 +25,7 @@
     %ul.right
       - if user_signed_in?
         %li
-          = link_to 'Einstellungen', '', method: :delete
+          = link_to 'Benutzer-Einstellungen', ''
       %li
         - if user_signed_in?
           = link_to 'Logout', destroy_user_session_path, method: :delete

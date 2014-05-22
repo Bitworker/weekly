@@ -2,6 +2,10 @@ Weekly::Application.routes.draw do
   
   devise_for :users, :controllers => { :registrations => "registrations" }
   
+  resources :company do
+    resource :settings, :module => "company"
+  end
+
   get  '/styleguide' => 'welcome#styleguide', :as => :styleguide
   post 'interest/create' => 'welcome#create'
   

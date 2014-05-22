@@ -7,7 +7,6 @@ class WelcomeController < ApplicationController
   def styleguide
   end
   
-  # Creates an Interest
   def create
     @interest = Interest.new(interest_params)
     
