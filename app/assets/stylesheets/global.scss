@@ -1,3 +1,9 @@
+body {
+  legend {
+    background-color: #f2f2f2;
+  }
+}
+
 .alert-box.notice {
   background-color: #5da423;
   border-color: white;
@@ -7,10 +13,10 @@
   border-color: white;
 }
 
+
+
+
 .welcome {
-  legend{
-  	background-color: #f2f2f2;
-  }
   h5 {
   	margin: 15px;
   	margin-top: 60px;

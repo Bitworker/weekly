@@ -4,6 +4,9 @@ class RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
     
     yield resource if block_given?
+
+    resource.role = :admin
+    
     if resource.save
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_flashing_format?

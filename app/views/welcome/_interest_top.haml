@@ -8,15 +8,7 @@
     .row
       .small-2.columns
       .small-8.columns
-        = form_for @interest, url: { action: "create" } do |form|
-          %fieldset
-            %legend
-              Kostenlos testen
-            .row.collapse
-              .small-10.columns
-                = form.text_field :email, { :placeholder => 'Ihre E-Mail-Addresse' }
-              .small-2.columns
-                = form.submit 'Los', { :class => 'postfix button' }
+        = render :partial => 'shared/new_interest', :locals => { :page => controller_name }
       .small-2.columns
   
   .small-5.columns

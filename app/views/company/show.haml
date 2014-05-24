@@ -1,2 +1,21 @@
-Firmenübersicht für 
-= @company.name
+.row
+  .small-12.columns
+    %h2
+      Firmenübersicht für
+      = @company.name
+    %hr
+    = render :partial => 'shared/new_interest', :locals => { :page => controller_name }
+    %hr
+    - @company_users.group_by(&:role).each do |role, users|
+      %p
+        = role
+      - users.each do |user|
+        %p
+          = user.email
+    %hr
+
+an dem user wird nen confirm link gespeichert (encrypted)
+%br
+der kann dann später per email gesetzt werden
+%br
+confirm link gibt die pw form frei und setzt user auf team

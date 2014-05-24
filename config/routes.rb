@@ -7,7 +7,8 @@ Weekly::Application.routes.draw do
   end
 
   get  '/styleguide' => 'welcome#styleguide', :as => :styleguide
-  post 'interest/create' => 'welcome#create'
+  
+  post 'interest/create' => 'interest#create'
   
   root 'welcome#index'
   
