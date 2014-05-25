@@ -1,17 +1,30 @@
-.row
+.company-overview.row.collapse
   .small-12.columns
     %h2
       Firmenübersicht für
       = @company.name
-    %hr
-    = render :partial => 'shared/new_interest', :locals => { :page => controller_name }
-    %hr
+    %br
     - @company_users.group_by(&:role).each do |role, users|
-      %p
-        = role
-      - users.each do |user|
-        %p
-          = user.email
+      - if role == "admin"
+        .row.admin-content
+          .small-6.columns
+            %h4
+              Administrator
+            - users.each do |user|
+              %p
+                = user.email
+          .small-6.columns
+            - if current_user.role == "admin"
+              = render :partial => 'shared/new_interest', :locals => { :page => controller_name }
+      - else
+        %hr
+        .row
+          .small-12.columns
+            %h4
+              = role
+            - users.each do |user|
+              %p
+                = user.email
     %hr
 
 an dem user wird nen confirm link gespeichert (encrypted)

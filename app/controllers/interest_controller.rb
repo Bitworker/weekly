@@ -4,10 +4,11 @@ class InterestController < ApplicationController
     
     if @interest.save
       if params[:page] == "company"
-        @user         = User.new
-        @user.email   = @interest.email
-        @user.role    = :pending
-        @user.company = current_user.company
+        @user                    = User.new
+        @user.email              = @interest.email
+        @user.role               = :pending
+        @user.company            = current_user.company
+        @user.confirmation_token = @user.generate_confirmation_token
         
         if @user.save
           flash[:notice] = "Mitarbeiter #{@user.email} wurde hinzugefügt."
