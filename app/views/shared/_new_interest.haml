@@ -1,0 +1,15 @@
+- if page == "welcome"
+  - legend_text, placeholder_text = 'Kostenlos testen',       'Ihre E-Mail-Addresse'
+- elsif page == "company"
+  - legend_text, placeholder_text = 'Mitarbeiter hinzufügen', 'E-Mail-Addresse des Mitarbeiters'
+
+= form_for Interest.new, :url => interest_create_path do |form|
+  %fieldset
+    %legend
+      = legend_text
+    .row.collapse
+      .small-10.columns
+        = form.text_field :email, { :placeholder => placeholder_text }
+      .small-2.columns
+        = form.submit 'Los', { :class => 'postfix button' }
+  = hidden_field_tag 'page', page
